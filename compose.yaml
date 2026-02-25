@@ -51,7 +51,7 @@ services:
       - ./frontend/.env
     environment:
       # - NUXT_PUBLIC_API_BASE=http://localhost:3000/api
-      - NUXT_PUBLIC_API_BASE=http://backend:3000/api
+      - NUXT_PUBLIC_API_BASE=http://backend:3000/api/
 
 volumes:
   pgdata:
