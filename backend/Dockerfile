@@ -1,5 +1,5 @@
 # ใช้ Node.js v18 (LTS) บน Alpine Linux เพื่อขนาดที่เล็ก
-FROM node:18-alpine
+FROM node:20-alpine
 
 # กำหนด working directory
 WORKDIR /app
