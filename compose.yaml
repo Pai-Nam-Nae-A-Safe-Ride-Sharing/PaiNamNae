@@ -33,10 +33,10 @@ services:
     env_file:
       - ./backend/.env
     environment:
-      DATABASE_URL:postgresql://${POSTGRES_USER:-myuser}:${POSTGRES_PASSWORD:-mypassword}@db:5432/${POSTGRES_DB:-painamnae_db}?schema=public
-      PRISMA_CLI_QUERY_ENGINE_TYPE:binary
-      PRISMA_CLIENT_ENGINE_TYPE:binary
-      FRONTEND_URL:http://localhost:3001
+      DATABASE_URL: postgresql://${POSTGRES_USER:-myuser}:${POSTGRES_PASSWORD:-mypassword}@db:5432/${POSTGRES_DB:-painamnae_db}?schema=public
+      PRISMA_CLI_QUERY_ENGINE_TYPE: binary
+      PRISMA_CLIENT_ENGINE_TYPE: binary
+      FRONTEND_URL: http://localhost:3001
 
     command: sh -c "npx prisma migrate deploy && node server.js"
 
