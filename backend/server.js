@@ -19,10 +19,20 @@ promClient.collectDefaultMetrics();
 app.use(helmet());
 
 const corsOptions = {
-    origin: ['http://localhost:3001',
-        'http://localhost:3000',
-        'https://amazing-crisp-9bcb1a.netlify.app',
-    process.env.FRONTEND_URL].filter(Boolean),
+    origin: function (origin, callback) {
+        const allowedOrigins = [
+            'http://localhost:3001',
+            'http://localhost:3000',
+            process.env.FRONTEND_URL, // รับค่าจาก ENV
+        ];
+        
+        // อนุญาตถ้ารายการอยู่ใน list หรือไม่มี origin (เช่น server-to-server call)
+        if (!origin || allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV === 'development') {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']

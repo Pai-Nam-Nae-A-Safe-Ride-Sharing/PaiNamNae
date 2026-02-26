@@ -25,4 +25,5 @@ RUN npx prisma generate
 EXPOSE 3000
 
 # คำสั่งรัน Server (รอ Database พร้อมก่อนค่อยรัน migrate ถ้าจำเป็น หรือรันใน compose)
-CMD ["npm", "run", "dev"]
+# CMD ["npm", "run", "dev"]
+CMD ["node", "server.js"]
