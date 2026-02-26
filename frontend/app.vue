@@ -8,5 +8,6 @@
 </template>
 
 <script setup>
+// toastwrapper
 import ToastWrapper from '~/components/ToastWrapper.vue';
 </script>
