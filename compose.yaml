@@ -38,7 +38,7 @@ services:
       PRISMA_CLIENT_ENGINE_TYPE: binary
       FRONTEND_URL: http://localhost:3001
 
-    command: sh -c "npx prisma migrate deploy && node server.js"
+    command: sh -c "npx prisma migrate deploy && npm run start"
 
   frontend:
     build: ./frontend
