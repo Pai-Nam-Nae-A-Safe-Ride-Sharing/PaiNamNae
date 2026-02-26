@@ -1,7 +1,7 @@
 # ใช้ Node.js v18 (LTS) บน Alpine Linux เพื่อขนาดที่เล็ก
-FROM node:20-alpine
+FROM node:20-slim
 
-RUN apk add --no-cache openssl libc6-compat
+RUN apt-get update -y && apt-get install -y openssl ca-certificates
 
 # กำหนด working directory
 WORKDIR /app
